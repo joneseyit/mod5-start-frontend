@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
+import { NavLink, Link } from 'react-router-dom'
 
 export default class MenuExampleStackable extends Component {
   state = {}
@@ -12,29 +13,30 @@ export default class MenuExampleStackable extends Component {
     const { activeItem } = this.state
 
     return (
-      <Menu stackable inverted size='massive'>
+      <Menu stackable inverted size='medium'>
         <Menu.Item size='medium'>
-          <img src="https://fontmeme.com/permalink/190131/ab833960b7dac9f34e01a0920bcba65f.png" size='large'/>
+          <Link to='/' >
+            <img src="https://fontmeme.com/permalink/190131/ab833960b7dac9f34e01a0920bcba65f.png" size='large'/>
+          </Link>
         </Menu.Item>
 
-        <Menu.Item
-          name='Home'
-          active={activeItem === 'features'}
-          onClick={this.handleItemClick}
+        <Menu.Item as={ Link } to='/profile'
+          name='Profile'
         >
-          Home
+      
+          Profile
         </Menu.Item>
 
-        <Menu.Item
-          name='Photos'
-          active={activeItem === 'testimonials'}
-          onClick={this.handleItemClick}
+
+        <Menu.Item as={ Link } to='/photos'
+          name='/photos'
         >
           Photos
         </Menu.Item>
 
-        <Menu.Item name='sign-in' active={activeItem === 'sign-in'} onClick={this.handleItemClick}>
-          Sign-in
+
+        <Menu.Item as={ Link } to='/login' name='sign-in'  >
+            Log-in
         </Menu.Item>
       </Menu>
     )

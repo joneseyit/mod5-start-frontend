@@ -1,8 +1,5 @@
-import { combineReducer } from 'redux'
 
-export default (state = [], action) => {
-  switch (action.type) {
-    default:
-      return state
-  }
-}
+const rootReducer = combineReducers({
+  user: userReducer,
+  photos: photoReducer
+})
