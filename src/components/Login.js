@@ -13,7 +13,8 @@ class Login extends Component {
 
   state = {
     username: '',
-    password: ''
+    password: '',
+    errors: ''
   }
 
   fetchLogin = (username, password) => {
@@ -35,12 +36,17 @@ class Login extends Component {
     fetch(loginApi, options)
     .then(res => res.json())
     .then(payload => {
-      //payload.errors? 
-      localStorage.setItem("token", payload.token)
-      localStorage.setItem("username", payload.user)
-      localStorage.setItem("id", payload.id)
-      this.props.history.push("/profile")
+        if(payload.error){
+          this.setState({ errors: payload.error })
+          this.props.history.push('/login')
+        } else {
+            localStorage.setItem("token", payload.token)
+            localStorage.setItem("username", payload.user)
+            localStorage.setItem("id", payload.id)
+            this.props.history.push("/profile")
+        }
     })
+
   }
 
   handleOnChange = (event) => {
@@ -69,6 +75,14 @@ class Login extends Component {
        <Header as='h2' color='teal' textAlign='center'>
          Log-in to your account
        </Header>
+       {this.state.errors ?
+         <div className="error-message">
+           {this.state.errors}
+         </div>
+         :
+         null
+       }
+
        <Form size='large' onSubmit={event => this.onSubmitHandler(event)}>
          <Segment stacked>
            <Form.Input
