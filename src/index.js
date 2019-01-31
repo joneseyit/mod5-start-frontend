@@ -1,12 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import "semantic-ui-css/semantic.min.css";
+import { Provider } from "react-redux";
+import  rootReducer  from './reducers/rootReducer'
+import { createStore } from 'redux'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { BrowserRouter as Router } from "react-router-dom";
+//link tag where you would use an a tag- uses in nav
+//route conditionally renders something based on url
+//switch - rendering one component out of choices based on routes?
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+let store = createStore(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ &&
+  window.__REDUX_DEVTOOLS_EXTENSION__())
+
+ReactDOM.render(
+  <Router>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </Router>,
+  document.getElementById("root")
+);
