@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Form, Input, TextArea, Button, Select } from 'semantic-ui-react'
+import { Form, Input, TextArea, Button, Select, Container } from 'semantic-ui-react'
 import { addUser } from '../actions/actions'
 
 class Signup extends Component {
@@ -47,7 +47,8 @@ class Signup extends Component {
   }
   render(){
     return (
-      <div>
+      <Container text>
+
       <Form>
         <Form.Group widths='equal'>
           <Form.Field
@@ -98,7 +99,7 @@ class Signup extends Component {
           onClick={(e) => this.onSubmitHandler(e)}
         />
       </Form>
-      </div>
+      </Container>
     )
   }
 }
