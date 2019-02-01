@@ -2,13 +2,13 @@ import React from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
 
 const PhotoCard = props => {
-
+  console.log(props.photo.created_at.split('-'))
   return (<div>
     <Card>
-      <Image src={props.photo.img} />
+      <Image src={props.photo.img} alt={props.photo.title} />
       <Card.Content>
         <Card.Header>{props.photo.title}</Card.Header>
-        <Card.Meta>Joined in 2016</Card.Meta>
+        <Card.Meta>Photo added {props.photo.created_at.split('-')[0]}</Card.Meta>
         <Card.Description>{props.photo.caption}</Card.Description>
       </Card.Content>
       <Card.Content extra>

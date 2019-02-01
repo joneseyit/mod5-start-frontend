@@ -18,7 +18,6 @@ class Profile extends Component {
   };
 
   componentDidMount() {
-    console.log("Hey yo")
     this.fetchUser();
 
   }

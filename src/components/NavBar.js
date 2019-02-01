@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Menu } from 'semantic-ui-react'
-import { NavLink, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { logoutUser } from '../actions/actions'
 import { connect } from 'react-redux'
 
@@ -59,6 +59,8 @@ class NavBar extends Component {
     )
   }
 }
+const mapStateToProps = ({user}) => {
+  return user
+}
 
-
-export default connect()(NavBar)
+export default connect(mapStateToProps)(NavBar)

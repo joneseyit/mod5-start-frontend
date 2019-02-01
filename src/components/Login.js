@@ -5,7 +5,6 @@ import {
   Button,
   Segment,
   Header,
-  Image,
   Message
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
@@ -107,9 +106,11 @@ class Login extends Component {
                 </Button>
               </Segment>
             </Form>
+            <Link to='/signup'>
             <Message>
-              New to us? <p>Sign Up</p>
+              First time here? <p>Sign Up</p>
             </Message>
+            </Link>
           </Grid.Column>
         </Grid>
       </div>
