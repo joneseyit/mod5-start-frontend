@@ -11,3 +11,7 @@ export function test(string) {
 export function addUser(user){
   return { type: 'CURRENT_USER', user: user}
 }
+
+export function logoutUser(){
+  return { type: 'LOGOUT_USER'}
+}
