@@ -18,18 +18,20 @@ class Profile extends Component {
   };
 
   componentDidMount() {
+    console.log("Hey yo")
     this.fetchUser();
+
   }
   //anon avatar
   // http://bestnycacupuncturist.com/wp-content/uploads/2016/11/anonymous-avatar-sm.jpg
   render() {
     return (
       <div>
-        {false ? (
+        {this.props.user === null ? (
           ""
         ) : (
           <div>
-            <h1>Make yourself at home {this.props.user.name}</h1>
+            <h1>What up {this.props.user.name}</h1>
             <Card>
               <Image src="http://bestnycacupuncturist.com/wp-content/uploads/2016/11/anonymous-avatar-sm.jpg" />
               <Card.Content>

@@ -1,16 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Menu } from 'semantic-ui-react'
 import { NavLink, Link } from 'react-router-dom'
+import { logoutUser } from '../actions/actions'
+import { connect } from 'react-redux'
 
-export default class MenuExampleStackable extends Component {
-  state = {}
+class NavBar extends Component {
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  handleLogout = (e) => {
+    this.props.dispatch(logoutUser())
+  }
   //Color of NavBar  = C34705
   // https://fontmeme.com/permalink/190131/ab833960b7dac9f34e01a0920bcba65f.png
   // https://fontmeme.com/permalink/190131/0bed7502ef330463832c4b8f25039d53.png
   render() {
-    const { activeItem } = this.state
 
     return (
       <Menu stackable inverted size='medium'>
@@ -20,25 +23,42 @@ export default class MenuExampleStackable extends Component {
           </Link>
         </Menu.Item>
 
-        <Menu.Item as={ Link } to='/profile'
-          name='Profile'
-        >
-      
-          Profile
-        </Menu.Item>
-
-
         <Menu.Item as={ Link } to='/photos'
           name='/photos'
         >
           Photos
         </Menu.Item>
 
+        {localStorage.username ? (
+          <React.Fragment>
+          <Menu.Item as={ Link } to='/profile'
+            name='Profile'
+          >
+            Profile
+          </Menu.Item>
 
-        <Menu.Item as={ Link } to='/login' name='sign-in'  >
-            Log-in
-        </Menu.Item>
+          <Menu.Item as={ Link } to='/' onClick={(e) => this.handleLogout(e)}>
+            Logout
+          </Menu.Item>
+          </React.Fragment>
+        ) :
+        (
+          <Menu.Item as={ Link } to='/login' name='sign-in'  >
+              Log-in <br/><br/>
+              Sign-up
+          </Menu.Item>
+        )}
+
+
+
+
+
       </Menu>
+
+
     )
   }
 }
+
+
+export default connect()(NavBar)
