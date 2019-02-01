@@ -8,7 +8,7 @@ import NavBar from './components/NavBar'
 import Home from './components/Home'
 import PhotoContainer from './components/PhotoContainer'
 import Signup from './components/Signup'
-
+import CreatePhoto from './components/CreatePhoto'
 import 'semantic-ui/dist/semantic.min.css';
 
 
@@ -24,6 +24,7 @@ export default class App extends Component {
             <Route exact path='/profile' component={Profile} />
             <Route exact path='/photos' component={PhotoContainer} />
             <Route exact path='/signup' component={Signup} />
+            <Route exact path='/create_photo' component={CreatePhoto} />
         </Switch>
       </div>
     );

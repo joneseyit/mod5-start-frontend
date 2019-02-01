@@ -48,7 +48,6 @@ class Signup extends Component {
   render(){
     return (
       <Container text>
-
       <Form>
         <Form.Group widths='equal'>
           <Form.Field
