@@ -1,5 +1,5 @@
-export function photoReducer(state, action){
-  switch (action.ype) {
+export function photosReducer(state = [], action){
+  switch (action.type) {
     case 'FETCHED_PHOTOS':
       return action.photos
     default:

@@ -11,7 +11,6 @@ class Profile extends Component {
   //render based on props from fetch request
 
   fetchUser = () => {
-    
     let id = parseInt(localStorage.id);
     return fetch(`http://localhost:3000/api/v1/users/${id}`)
       .then(res => res.json())
@@ -24,28 +23,25 @@ class Profile extends Component {
   //anon avatar
   // http://bestnycacupuncturist.com/wp-content/uploads/2016/11/anonymous-avatar-sm.jpg
   render() {
-
-
     return (
       <div>
-        <h1>Make yourself at home {this.props.user.name}</h1>
-
-        {false ? "" :
-          (<Card>
-            <Image src="http://bestnycacupuncturist.com/wp-content/uploads/2016/11/anonymous-avatar-sm.jpg" />
-            <Card.Content>
-              <Card.Header>{this.props.user.name}</Card.Header>
-              <Card.Description>
-                {this.props.user.bio}
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-
-            </Card.Content>
-          </Card>)
-        }
+        {false ? (
+          ""
+        ) : (
+          <div>
+            <h1>Make yourself at home {this.props.user.name}</h1>
+            <Card>
+              <Image src="http://bestnycacupuncturist.com/wp-content/uploads/2016/11/anonymous-avatar-sm.jpg" />
+              <Card.Content>
+                <Card.Header>{this.props.user.name}</Card.Header>
+                <Card.Description>{this.props.user.bio}</Card.Description>
+              </Card.Content>
+              <Card.Content extra />
+            </Card>
+          </div>
+        )}
       </div>
-    );//return )
+    ); //return )
   }
 }
 // <h2>My name is...{this.props.user.name}</h2>

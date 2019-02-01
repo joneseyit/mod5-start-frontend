@@ -1,5 +1,8 @@
+import { combineReducers } from 'redux'
+import { photosReducer } from './photosReducer'
+import userReducer from './userReducer'
 
-const rootReducer = combineReducers({
+export default combineReducers({
   user: userReducer,
-  photos: photoReducer
+  photos: photosReducer
 })

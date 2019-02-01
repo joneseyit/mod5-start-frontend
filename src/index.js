@@ -8,13 +8,12 @@ import { Provider } from "react-redux";
 import { createStore, combineReducers } from 'redux'
 import userReducer from './reducers/userReducer'
 import { BrowserRouter as Router } from "react-router-dom";
+import photosReducer from './reducers/userReducer'
+import rootReducer from './reducers/rootReducer'
+
 //link tag where you would use an a tag- uses in nav
 //route conditionally renders something based on url
 //switch - rendering one component out of choices based on routes?
-
-const rootReducer = combineReducers({
-  user: userReducer
-})
 
 let store = createStore(
   rootReducer,
