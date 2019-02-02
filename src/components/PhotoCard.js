@@ -2,7 +2,6 @@ import React from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
 
 const PhotoCard = props => {
-  console.log(props.photo.created_at.split('-'))
   return (<div>
     <Card>
       <Image src={props.photo.img} alt={props.photo.title} />
