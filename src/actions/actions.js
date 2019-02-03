@@ -15,3 +15,7 @@ export function addUser(user){
 export function logoutUser(){
   return { type: 'LOGOUT_USER'}
 }
+
+export function addPhoto(photo){
+  return {type: 'ADD_PHOTO', photo: photo }
+}

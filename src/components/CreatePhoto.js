@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Form, TextArea } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { addPhoto } from '../actions/actions'
 
 class CreatePhoto extends Component {
   state = {
@@ -29,7 +31,7 @@ class CreatePhoto extends Component {
 
     fetch('http://localhost:3000/api/v1/photos/', options)
     .then(res => res.json())
-    .then(console.log)
+    .then(photo => this.props.dispatch(addPhoto(photo)))
 
     this.props.history.push('/photos')
   }
@@ -86,4 +88,8 @@ class CreatePhoto extends Component {
   }
 }
 
-export default CreatePhoto
+const mapStateToProps = (state) => {
+  return state
+}
+
+export default connect(mapStateToProps)(CreatePhoto)
