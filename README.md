@@ -1,3 +1,11 @@
+//put some padding on the bottom of the photo browse page
+//search photos function
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
