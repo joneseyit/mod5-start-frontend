@@ -1,16 +1,50 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import  { test }  from '../actions/actions'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { test } from "../actions/actions";
+import { Container } from 'semantic-ui-react'
+
+let image = `https://images.unsplash.com/photo-1518558997970-4ddc236affcd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`;
+
+const homeBg = {
+  backgroundImage: `url(${image})`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  height: "900px"
+};
+
+const start = {
+  display: "flex",
+  justifyContent: "center"
+};
 
 class Home extends Component {
-  handleOnClick = (e) => {
-    this.props.dispatch(test("HEY HEY HEY"))
-  }
-  render(){
-    return(
-      <h1 onClick={(e) => this.handleOnClick(e)}>You hit home</h1>
-    )
+  handleOnClick = e => {
+    this.props.dispatch(test("HEY HEY HEY"));
+  };
+
+  componentDidMount(){
+    console.log(navigator.geolocation.getCurrentPosition((data) => {
+      return data.coords.latitude
+    })
+  )}
+
+  render() {
+
+    return (
+      <div style={homeBg}>
+        <Container style={start}>
+          <div style={{ marginTop: "200px" }}>
+            <img
+              src="https://fontmeme.com/permalink/190125/50588292a806956543bf3406ec36aaf3.png"
+              alt="graffiti-fonts"
+              border="0"
+            />
+          </div>
+        </Container>
+      </div>
+    );
   }
 }
 
-export default connect()(Home)
+export default connect()(Home);

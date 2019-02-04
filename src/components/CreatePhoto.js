@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, TextArea } from 'semantic-ui-react'
+import { Form, TextArea, Container } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { addPhoto } from '../actions/actions'
 
@@ -42,6 +42,7 @@ class CreatePhoto extends Component {
 
   render(){
     return (
+    <Container text>
     <Form onSubmit={(e) => this.onSubmitHandler(e)}>
       <Form.Field>
         <label>Title</label>
@@ -72,7 +73,7 @@ class CreatePhoto extends Component {
       </Form.Field>
 
       <Form.Field>
-        <label>Upload your photo here por favor</label>
+        <label>Pick a photo to upload</label>
         <input
           type='file'
           placeholder="Photo"
@@ -84,6 +85,7 @@ class CreatePhoto extends Component {
         <input type='submit' />
       </Form.Field>
     </Form>
+    </Container>
     )
   }
 }

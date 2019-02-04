@@ -37,9 +37,16 @@ class NavBar extends Component {
             Profile
           </Menu.Item>
 
+          <Menu.Item as={ Link } to='/create_photo'
+            name='create_photo'
+          >
+            Submit Some St.Art
+          </Menu.Item>
+
           <Menu.Item as={ Link } to='/' onClick={(e) => this.handleLogout(e)}>
             Logout
           </Menu.Item>
+
           </React.Fragment>
         ) :
         (
