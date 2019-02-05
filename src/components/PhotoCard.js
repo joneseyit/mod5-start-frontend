@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
 
-console.log(navigator.geolocation.getCurrentPosition((data) => data))
 
 const PhotoCard = props => {
 
