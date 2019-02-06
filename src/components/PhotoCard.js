@@ -4,8 +4,12 @@ import { Card, Icon, Image } from "semantic-ui-react";
 
 const PhotoCard = props => {
 
+  const clickHandler = (e) => {
+    
+  }
+
   return (<div>
-    <Card>
+    <Card onClick={ (e) => clickHandler(e) } >
       <Image src={props.photo.img} alt={props.photo.title} />
       <Card.Content>
         <Card.Header>{props.photo.title}</Card.Header>

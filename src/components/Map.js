@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { withGoogleMap, GoogleMap } from 'react-google-maps'
+import { withGoogleMap, GoogleMap, InfoWindow } from 'react-google-maps'
 import { PlaceMarker } from './PlaceMarker'
 import { connect } from 'react-redux'
-
+import { fetchedPhotos } from '../actions/actions'
 
 
 const PhotoMap = withGoogleMap(props => {
@@ -12,15 +12,33 @@ const PhotoMap = withGoogleMap(props => {
 });
 
 
-export default class Map extends Component {
+
+class Map extends Component {
   state = {
     lat: 50.0515918,
-    lng: 19.9357531
+    lng: 19.9357531,
+    showInfoWindow: false
+  }
+
+  fetchPhotos(){
+    fetch('http://localhost:3000/api/v1/photos')
+    .then(res => res.json())
+    .then(photos =>  this.props.dispatch(fetchedPhotos(photos))
+
+    )
+  }
+
+  componentDidMount() {
+    this.fetchPhotos()
   }
 
   render() {
+    const { caption, title, img } = this.props
     const {lat, lng} = this.state;
-    const places = <PlaceMarker lat={50.0515918} lng={19.9357531} />
+    const places =
+                <div>
+                   <PlaceMarker lat={40.0515918} lng={15.9357531} />
+                </div>
 
   return (
       <div style={{ width: '750px', height: '750px' }}>
@@ -43,3 +61,9 @@ export default class Map extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return { photos: state.photos }
+}
+
+export default connect(mapStateToProps)(Map)
