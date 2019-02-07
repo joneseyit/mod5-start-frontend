@@ -4,6 +4,8 @@ export function photosReducer(state = [], action){
       return action.photos
     case 'ADD_PHOTO':
       return [action.photo].concat(state)
+    case 'SHOW_PHOTO':
+      return action.photo
     default:
       return state
   }

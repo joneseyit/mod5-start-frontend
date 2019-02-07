@@ -29,6 +29,12 @@ class NavBar extends Component {
           Photos
         </Menu.Item>
 
+        <Menu.Item as={ Link } to='/map'
+          name='/map'
+        >
+          Find Photos on Map
+        </Menu.Item>
+
         {localStorage.username ? (
           <React.Fragment>
           <Menu.Item as={ Link } to='/profile'
@@ -40,7 +46,7 @@ class NavBar extends Component {
           <Menu.Item as={ Link } to='/create_photo'
             name='create_photo'
           >
-            Show Us Your Photo/Post photo
+            Post a photo
           </Menu.Item>
 
           <Menu.Item as={ Link } to='/' onClick={(e) => this.handleLogout(e)}>

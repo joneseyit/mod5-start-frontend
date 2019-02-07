@@ -5,7 +5,7 @@ import { Card, Icon, Image } from "semantic-ui-react";
 const PhotoCard = props => {
 
   const clickHandler = (e) => {
-    
+    debugger
   }
 
   return (<div>

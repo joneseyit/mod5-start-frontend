@@ -11,6 +11,7 @@ import Signup from './components/Signup'
 import CreatePhoto from './components/CreatePhoto'
 import Map from './components/Map'
 import 'semantic-ui/dist/semantic.min.css';
+import ShowPhotos from './components/ShowPhotos'
 
 
 
@@ -27,6 +28,7 @@ export default class App extends Component {
             <Route exact path='/signup' component={Signup} />
             <Route exact path='/create_photo' component={CreatePhoto} />
             <Route exact path='/map' component={Map} />
+            <Route exact path='/show/:id' component={ShowPhotos} />
 
         </Switch>
       </div>

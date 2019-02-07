@@ -15,3 +15,7 @@ export function logoutUser(){
 export function addPhoto(photo){
   return {type: 'ADD_PHOTO', photo: photo }
 }
+
+export function showPhoto(photo) {
+  return { type: 'SHOW_PHOTO', photo: photo }
+}

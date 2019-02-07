@@ -5,7 +5,13 @@ import { addPhoto } from '../actions/actions'
 
 class CreatePhoto extends Component {
   state = {
-    photoFile: ''
+    photoFile: '',
+    latitude: null,
+    longitude: null
+  }
+
+  getCoords = () => {
+    navigator.geolocation.getCurrentPosition(data => this.setState({ latitude: data.coords.latitude, longitude: data.coords.longitude }) )
   }
 
   onSubmitHandler = (e) => {
@@ -16,6 +22,8 @@ class CreatePhoto extends Component {
     let caption = e.target.caption.value
     let user_id = parseInt(localStorage.id)
     let picture = this.state.photoFile
+    let latitude = this.state.latitude
+    let longitude = this.state.longitude
 
     const formData = new FormData()
     formData.append('title', title)
@@ -23,6 +31,8 @@ class CreatePhoto extends Component {
     formData.append('caption', caption)
     formData.append('user_id', user_id)
     formData.append('picture', picture)
+    formData.append('latitude', latitude)
+    formData.append('longitude', longitude)
 
     let options = {
       method: 'POST',
@@ -49,12 +59,12 @@ class CreatePhoto extends Component {
         <input
           placeholder="Title"
           name='title'
-          onChange={this.onChangeHandler}
+          onChange={this.getCoords}
         />
       </Form.Field>
 
       <Form.Field>
-        <label>Location</label>
+        <label>Notes on Location</label>
         <input
           placeholder="Location"
           name='location'
