@@ -1,15 +1,12 @@
 import React from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
-
+import { Link } from 'react-router-dom'
 
 const PhotoCard = props => {
 
-  const clickHandler = (e) => {
-    debugger
-  }
-
+  let id = props.photo.id
   return (<div>
-    <Card onClick={ (e) => clickHandler(e) } >
+    <Card as={ Link } to={{pathname: `show/${id}`, photo: props.photo}} >
       <Image src={props.photo.img} alt={props.photo.title} />
       <Card.Content>
         <Card.Header>{props.photo.title}</Card.Header>

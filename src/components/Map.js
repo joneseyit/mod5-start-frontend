@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withGoogleMap, GoogleMap, InfoWindow, Marker } from 'react-google-maps'
+import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 import { PlaceMarker } from './PlaceMarker'
 import { connect } from 'react-redux'
 import { fetchedPhotos } from '../actions/actions'
@@ -54,7 +54,7 @@ class Map extends Component {
   render() {
 
     //comes from mapstate to props i get the data on the photos
-    const { caption, title, img } = this.props
+    // const { caption, title, img } = this.props
     const {lat, lng} = this.state;
     const places =
         <div>

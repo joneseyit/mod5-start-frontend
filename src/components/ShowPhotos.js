@@ -8,31 +8,31 @@ class ShowPhotos extends Component {
   //render
   //container
   //
-
-  fetchPhoto = () => {
-    const id = this.props.id
-    fetch(`http://localhost:3000/api/v1/photos/${id}`)
-    .then(res => res.json())
-    .then(photo => this.props.dispatch(showPhoto(photo)))
-  }
-
-  componentDidMount(){
-    this.fetchPhoto()
-  }
+  //
+  // fetchPhoto = () => {
+  //   const id = this.props.match.id
+  //   fetch(`http://localhost:3000/api/v1/photos/${id}`)
+  //   .then(res => res.json())
+  //   .then(photo => this.props.dispatch(showPhoto(photo)))
+  // }
+  //
+  // componentDidMount(){
+  //   this.fetchPhoto()
+  // }
 
   render() {
-    const photo = () => {
-      let id = this.props.id
-      let curPhoto = this.props.photos.filter(photo => id === photo.id)
-      return curPhoto
-    }
+      debugger
+      let id = parseInt(this.props.match.params.id)
+      let curPhoto = (this.props.photos.filter(photo => id === photo.id))[0]
     return (
-      <PhotoCard photo={photo()}/>
+
+      <PhotoCard style={{align: 'center'}}photo={curPhoto}/>
     )
   }
-
-
-
 }
 
-export default connect()(ShowPhotos)
+const mapStateToProps = (state) => {
+  return { photos: state.photos }
+}
+
+export default connect(mapStateToProps)(ShowPhotos)
