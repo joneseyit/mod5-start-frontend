@@ -17,8 +17,10 @@ class ShowPhotos extends Component {
   }
 
   render() {
+
     return(
-      this.props.photo !== undefined ? (<p>{this.props.photo.created_at}</p>): (<p>Loading...</p>)
+      this.props.photo.created_at === undefined ? (<p>Loading...</p>) : (<PhotoCard photo={this.props.photo} />)
+
     )
 
 
