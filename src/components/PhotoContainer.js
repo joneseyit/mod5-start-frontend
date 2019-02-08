@@ -6,7 +6,7 @@ import PhotoCard from './PhotoCard'
 
 
 class PhotoContainer extends Component {
-  
+
   fetchPhotos(){
     fetch('http://localhost:3000/api/v1/photos')
     .then(res => res.json())

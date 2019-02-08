@@ -66,7 +66,7 @@ class CreatePhoto extends Component {
       <Form.Field>
         <label>Notes on Location</label>
         <input
-          placeholder="Location"
+          placeholder="Gives us some notes on the location"
           name='location'
           onChange={this.onChangeHandler}
         />

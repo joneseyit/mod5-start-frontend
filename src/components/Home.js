@@ -9,7 +9,7 @@ const homeBg = {
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
   backgroundPosition: "center",
-  height: "80vh"
+  height: "100vh"
 };
 
 const start = {

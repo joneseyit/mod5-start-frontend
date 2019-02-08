@@ -1,6 +1,7 @@
 //action creator
 
 export function fetchedPhotos(photos) {
+  console.log("inside fetched photos")
   return { type: 'FETCHED_PHOTOS', photos: photos}
 }
 
