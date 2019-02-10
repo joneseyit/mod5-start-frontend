@@ -14,10 +14,14 @@
   - create state
   - create a searchContainer component
   - filter results based on photo.tags
-  - 
+  -
 
 
 
 #BUGS -
       - **fixed added logic in user controller** username and token are    undefined in localStorage
       - creating a username does not tell you username is already taken
+
+
+#Styling
+  - Do Subheading of like "find and share street art in your local community"

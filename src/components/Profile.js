@@ -43,7 +43,7 @@ class Profile extends Component {
                 <Card.Content extra />
               </Card>
             </Card.Group>
-            <h3>Photos I posted...</h3>
+            <h3>St.Art I posted...</h3>
 
               {this.props.user.photos ? (this.props.user.photos.map(photo => <PhotoCard photo={photo} />)) : <p>You haven't posted any photos yet</p>}
 

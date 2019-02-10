@@ -43,9 +43,9 @@ class Map extends Component {
   }
 
   componentDidMount() {
-
-    this.fetchPhotos()
     this.setLocation()
+    this.fetchPhotos()
+
 
     console.log(this.state, 'in didmount')
   }
@@ -60,10 +60,9 @@ class Map extends Component {
         <div>
            {this.props.photos.map(photo => <PlaceMarker lat={parseFloat(photo.latitude)} lng={parseFloat(photo.longitude)} title={photo.title} caption={photo.caption} img={photo.img} id={photo.id}/> )}
         </div>
-      console.log( lat, "is lat")
   return (
       <div style={{ width: '750px', height: '750px' }}>
-        {this.state.lat > 0  ?
+        {(this.state.lat > 0)  ?
         (<PhotoMap
           state={console.log(this.state, 'in photomap')}
           center={{
