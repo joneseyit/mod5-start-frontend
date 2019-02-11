@@ -12,6 +12,8 @@ import { fetchedPhotos } from '../actions/actions'
 //for each marker add a showWindow state of true or false - on the marker render it
 //if it's true using the &&
 
+
+
 const PhotoMap = withGoogleMap(props => {
   return <GoogleMap defaultCenter={props.center} defaultZoom={props.zoom}>
     {props.places}

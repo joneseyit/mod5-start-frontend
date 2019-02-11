@@ -83,6 +83,15 @@ class CreatePhoto extends Component {
       </Form.Field>
 
       <Form.Field>
+        <label>Tags</label>
+        <input
+          placeholder="Tags"
+          name='Tags'
+          onChange={this.onChangeHandler}
+        />
+      </Form.Field>
+
+      <Form.Field>
         <label>Pick a photo to upload</label>
         <input
           type='file'
@@ -91,6 +100,7 @@ class CreatePhoto extends Component {
           onChange={this.fileHandler}
         />
       </Form.Field>
+
       <Form.Field>
         <input type='submit' />
       </Form.Field>

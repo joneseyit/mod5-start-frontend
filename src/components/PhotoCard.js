@@ -16,7 +16,7 @@ const PhotoCard = props => {
         <Card.Description>{props.photo.caption}</Card.Description>
       </Card.Content>
       <Card.Content>
-        <Card.Description>{navigator.geolocation.getCurrentPosition((data) => data.coords.latitude)}</Card.Description>
+        <Card.Description>{props.photo.location}</Card.Description>
       </Card.Content>
       <Card.Content>
         <h5>Tags:   </h5>
