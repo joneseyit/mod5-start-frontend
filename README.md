@@ -25,3 +25,6 @@
 
 #Styling
   - Do Subheading of like "find and share street art in your local community"
+
+
+### Remove tag feature

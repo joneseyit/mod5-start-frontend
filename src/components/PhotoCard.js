@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Icon, Image } from "semantic-ui-react";
+import { Card, Icon, Image, Grid } from "semantic-ui-react";
 import { Link } from 'react-router-dom'
 
 
@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 const PhotoCard = props => {
   let id = props.photo.id
   return (<div>
+    <Grid.Column style={{padding: '10px'}}>
     <Card as={Link} to={{pathname: `show/${id}`, photo: props.photo}}>
       <Image src={props.photo.img} alt={props.photo.title} />
       <Card.Content>
@@ -18,12 +19,9 @@ const PhotoCard = props => {
       <Card.Content>
         <Card.Description>{props.photo.location}</Card.Description>
       </Card.Content>
-      <Card.Content>
-        <h5>Tags:   </h5>
-        {props.photo.tags.map(tag =><p>{tag.name}</p>)}
-      </Card.Content>
 
     </Card>
+    </Grid.Column>
   </div>)
 };
 

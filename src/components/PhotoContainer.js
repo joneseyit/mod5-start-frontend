@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Card } from 'semantic-ui-react'
+import { Card, Grid } from 'semantic-ui-react'
 import { fetchedPhotos } from '../actions/actions'
 import PhotoCard from './PhotoCard'
 
@@ -19,16 +19,21 @@ class PhotoContainer extends Component {
     this.fetchPhotos()
   }
 
+
+
+
   render (){
     return (
 
       <div>
         <div>
-        <Card.Group itemsPerRow={3}>
-        { !this.props.photos.length ? <p>Loading un momento...</p> :
-          (this.props.photos.map(photo => <PhotoCard photo={photo} /> ))
-        }
-        </Card.Group>
+          <Grid relaxed padded columns={4}>
+            <Card.Group>
+            { !this.props.photos.length ? <p>Loading un momento...</p> :
+              (this.props.photos.map(photo => <PhotoCard photo={photo} /> ))
+            }
+            </Card.Group>
+          </Grid>
         </div>
       </div>
     )
