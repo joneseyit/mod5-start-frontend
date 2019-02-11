@@ -31,6 +31,7 @@ class MapContainer extends React.Component {
         loadingElement={<div style={{ height: '100%' }} />}
         containerElement={<div style={{ height: '600px', width: '600px'}} />}
         mapElement={<div style={{ height: '100%'}} /> }
+        location={this.props.location}
       />
     )
 

@@ -4,7 +4,6 @@ import PhotoMarker from "./PhotoMarker";
 
 const PhotoMap = withScriptjs(
   withGoogleMap(props => {
-    debugger
     const markers = props.photos.map(photo => (
       <PhotoMarker
         key={photo.uid}
@@ -15,7 +14,7 @@ const PhotoMap = withScriptjs(
     return (
       <GoogleMap
         defaultZoom={14}
-        center={{lat: 33, lng: -84 }}
+        center={props.location}
         >
         {markers}
       </ GoogleMap>
