@@ -12,6 +12,7 @@ class Profile extends Component {
   //render based on props from fetch request
 
   fetchUser = () => {
+    debugger
     let id = parseInt(localStorage.id);
     return fetch(`http://localhost:3000/api/v1/users/${id}`)
       .then(res => res.json())
@@ -25,7 +26,6 @@ class Profile extends Component {
   //anon avatar
   // http://bestnycacupuncturist.com/wp-content/uploads/2016/11/anonymous-avatar-sm.jpg
   render() {
-    console.log(this.props.user)
     return (
       <div>
         {this.props.user === (undefined || null) ? (
