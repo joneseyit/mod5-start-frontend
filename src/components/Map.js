@@ -3,6 +3,7 @@ import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 import { PlaceMarker } from './PlaceMarker'
 import { connect } from 'react-redux'
 import { fetchedPhotos } from '../actions/actions'
+import { getLocation } from '../actions/actions'
 //Flows to PlaceMarker
 
 
@@ -39,32 +40,29 @@ class Map extends Component {
   }
 
   setLocation = () => {
-    lat: navigator.geolocation.getCurrentPosition( data => this.setState({ lat: data.coords.latitude }))
-    lng: navigator.geolocation.getCurrentPosition( data => this.setState({ lng: data.coords.longitude }) )
-
+    // lat: navigator.geolocation.getCurrentPosition( data => this.setState({ lat: data.coords.latitude }))
+    // lng: navigator.geolocation.getCurrentPosition( data => this.setState({ lng: data.coords.longitude }) )
+    navigator.geolocation.getCurrentPosition( data => this.props.dispatch( getLocation(data) ))
   }
 
   componentDidMount() {
     this.setLocation()
     this.fetchPhotos()
-
-
-    console.log(this.state, 'in didmount')
   }
 
 
   render() {
-
+    debugger
     //comes from mapstate to props i get the data on the photos
     // const { caption, title, img } = this.props
-    const {lat, lng} = this.state;
+    const {lat, lng} = this.props.location;
     const places =
         <div>
            {this.props.photos.map(photo => <PlaceMarker lat={parseFloat(photo.latitude)} lng={parseFloat(photo.longitude)} title={photo.title} caption={photo.caption} img={photo.img} id={photo.id}/> )}
         </div>
   return (
       <div style={{ width: '750px', height: '750px' }}>
-        {(this.state.lat > 0)  ?
+        {(lat > 0)  ?
         (<PhotoMap
           center={{
             lat: lat,
@@ -87,7 +85,7 @@ class Map extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { photos: state.photos }
+  return { photos: state.photos, location: state.location }
 }
 
 export default connect(mapStateToProps)(Map)

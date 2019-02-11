@@ -1,7 +1,6 @@
 //action creator
 
 export function fetchedPhotos(photos) {
-  console.log("inside fetched photos")
   return { type: 'FETCHED_PHOTOS', photos: photos}
 }
 
@@ -19,4 +18,8 @@ export function addPhoto(photo){
 
 export function showPhoto(photo) {
   return { type: 'SHOW_PHOTO', photo: photo }
+}
+
+export function getLocation(data) {
+  return { type: 'GET_LOCATION', location : { lat: data.coords.latitude, lng: data.coords.longitude } }
 }
