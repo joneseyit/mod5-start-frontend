@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
-import { Form, TextArea } from 'semantic-ui-react'
+import { Form, TextArea, Container } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { addPhoto } from '../actions/actions'
 
 class CreatePhoto extends Component {
   state = {
-    photoFile: ''
+    photoFile: '',
+    latitude: null,
+    longitude: null
+  }
+
+  getCoords = () => {
+    navigator.geolocation.getCurrentPosition(data => this.setState({ latitude: data.coords.latitude, longitude: data.coords.longitude }) )
   }
 
   onSubmitHandler = (e) => {
@@ -16,6 +22,8 @@ class CreatePhoto extends Component {
     let caption = e.target.caption.value
     let user_id = parseInt(localStorage.id)
     let picture = this.state.photoFile
+    let latitude = this.state.latitude
+    let longitude = this.state.longitude
 
     const formData = new FormData()
     formData.append('title', title)
@@ -23,6 +31,8 @@ class CreatePhoto extends Component {
     formData.append('caption', caption)
     formData.append('user_id', user_id)
     formData.append('picture', picture)
+    formData.append('latitude', latitude)
+    formData.append('longitude', longitude)
 
     let options = {
       method: 'POST',
@@ -42,27 +52,28 @@ class CreatePhoto extends Component {
 
   render(){
     return (
+    <Container text>
     <Form onSubmit={(e) => this.onSubmitHandler(e)}>
       <Form.Field>
-        <label>Title</label>
+        <label>Name your Photo</label>
         <input
-          placeholder="Title"
+          placeholder="Name"
           name='title'
-          onChange={this.onChangeHandler}
+          onChange={this.getCoords}
         />
       </Form.Field>
 
       <Form.Field>
-        <label>Location</label>
+        <label>Notes on Location - make it easy for people to find :)</label>
         <input
-          placeholder="Location"
+          placeholder="Location Notes"
           name='location'
           onChange={this.onChangeHandler}
         />
       </Form.Field>
 
       <Form.Field>
-        <label>Caption what you got</label>
+        <label>Give a caption or tell the community why you like this art</label>
         <input
           placeholder="Caption"
           name='caption'
@@ -72,7 +83,16 @@ class CreatePhoto extends Component {
       </Form.Field>
 
       <Form.Field>
-        <label>Upload your photo here por favor</label>
+        <label>Tags</label>
+        <input
+          placeholder="Tags"
+          name='Tags'
+          onChange={this.onChangeHandler}
+        />
+      </Form.Field>
+
+      <Form.Field>
+        <label>Pick a photo to upload</label>
         <input
           type='file'
           placeholder="Photo"
@@ -80,10 +100,12 @@ class CreatePhoto extends Component {
           onChange={this.fileHandler}
         />
       </Form.Field>
+
       <Form.Field>
         <input type='submit' />
       </Form.Field>
     </Form>
+    </Container>
     )
   }
 }

@@ -26,7 +26,13 @@ class NavBar extends Component {
         <Menu.Item as={ Link } to='/photos'
           name='/photos'
         >
-          Photos
+          Find St.Art
+        </Menu.Item>
+
+        <Menu.Item as={ Link } to='/map'
+          name='/map'
+        >
+          Find St.Art on Map
         </Menu.Item>
 
         {localStorage.username ? (
@@ -37,9 +43,16 @@ class NavBar extends Component {
             Profile
           </Menu.Item>
 
+          <Menu.Item as={ Link } to='/create_photo'
+            name='create_photo'
+          >
+            Share/Post St.Art
+          </Menu.Item>
+
           <Menu.Item as={ Link } to='/' onClick={(e) => this.handleLogout(e)}>
             Logout
           </Menu.Item>
+
           </React.Fragment>
         ) :
         (

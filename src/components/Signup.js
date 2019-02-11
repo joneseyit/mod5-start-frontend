@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Form, Input, TextArea, Button, Select, Container } from 'semantic-ui-react'
-import { addUser } from '../actions/actions'
+import { Form, Input, TextArea, Button, Container } from 'semantic-ui-react'
+
 
 class Signup extends Component {
   state = {
@@ -19,7 +19,6 @@ class Signup extends Component {
   }
 
   onSubmitHandler(){
-    debugger
     let body = this.state
     let options = {
       method: 'POST',
@@ -38,8 +37,9 @@ class Signup extends Component {
         this.setState({ errors: user.error})
         this.props.history.push('/signup')
       } else {
+        debugger
         localStorage.setItem("token", user.token);
-        localStorage.setItem("username", user.user);
+        localStorage.setItem("username", user.username);
         localStorage.setItem("id", user.id);
         this.props.history.push("/profile");
       }

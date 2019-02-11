@@ -3,12 +3,16 @@ import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
 import { fetchedPhotos } from '../actions/actions'
 import PhotoCard from './PhotoCard'
+
+
 class PhotoContainer extends Component {
 
   fetchPhotos(){
     fetch('http://localhost:3000/api/v1/photos')
     .then(res => res.json())
-    .then(photos =>  this.props.dispatch(fetchedPhotos(photos)))
+    .then(photos =>  this.props.dispatch(fetchedPhotos(photos))
+
+    )
   }
 
   componentDidMount(){
@@ -20,7 +24,7 @@ class PhotoContainer extends Component {
 
       <div>
         <div>
-        <Card.Group className="ui equal height grid">
+        <Card.Group itemsPerRow={3}>
         { !this.props.photos.length ? <p>Loading un momento...</p> :
           (this.props.photos.map(photo => <PhotoCard photo={photo} /> ))
         }

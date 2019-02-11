@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addUser } from "../actions/actions";
-import { Card, Icon, Image } from "semantic-ui-react";
+import { Card, Image } from "semantic-ui-react";
+import PhotoCard from './PhotoCard'
 
 class Profile extends Component {
   //grab ID of user from local localStorage
@@ -11,6 +12,7 @@ class Profile extends Component {
   //render based on props from fetch request
 
   fetchUser = () => {
+    debugger
     let id = parseInt(localStorage.id);
     return fetch(`http://localhost:3000/api/v1/users/${id}`)
       .then(res => res.json())
@@ -26,19 +28,25 @@ class Profile extends Component {
   render() {
     return (
       <div>
-        {this.props.user === null ? (
+        {this.props.user === (undefined || null) ? (
           ""
         ) : (
           <div>
             <h1>What up {this.props.user.name}</h1>
-            <Card>
-              <Image src="http://bestnycacupuncturist.com/wp-content/uploads/2016/11/anonymous-avatar-sm.jpg" />
-              <Card.Content>
-                <Card.Header>{this.props.user.name}</Card.Header>
-                <Card.Description>{this.props.user.bio}</Card.Description>
-              </Card.Content>
-              <Card.Content extra />
-            </Card>
+            <Card.Group centered >
+              <Card>
+                <Image src="http://bestnycacupuncturist.com/wp-content/uploads/2016/11/anonymous-avatar-sm.jpg" />
+                <Card.Content>
+                  <Card.Header>{this.props.user.name}</Card.Header>
+                  <Card.Description>My bio: {this.props.user.bio}</Card.Description>
+                </Card.Content>
+                <Card.Content extra />
+              </Card>
+            </Card.Group>
+            <h3>St.Art I posted...</h3>
+
+              {this.props.user.photos ? (this.props.user.photos.map(photo => <PhotoCard photo={photo} />)) : <p>You haven't posted any photos yet</p>}
+
           </div>
         )}
       </div>

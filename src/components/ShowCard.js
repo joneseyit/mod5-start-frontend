@@ -1,14 +1,13 @@
 import React from "react";
-import { Card, Icon, Image } from "semantic-ui-react";
-import { Link } from 'react-router-dom'
+import { Card, Image } from "semantic-ui-react";
 
 
 
 
-const PhotoCard = props => {
+const ShowCard = props => {
   let id = props.photo.id
   return (<div>
-    <Card as={Link} to={{pathname: `show/${id}`, photo: props.photo}}>
+    <Card>
       <Image src={props.photo.img} alt={props.photo.title} />
       <Card.Content>
         <Card.Header>{props.photo.title}</Card.Header>
@@ -16,7 +15,7 @@ const PhotoCard = props => {
         <Card.Description>{props.photo.caption}</Card.Description>
       </Card.Content>
       <Card.Content>
-        <Card.Description>{props.photo.location}</Card.Description>
+        <Card.Description>{navigator.geolocation.getCurrentPosition((data) => data.coords.latitude)}</Card.Description>
       </Card.Content>
       <Card.Content>
         <h5>Tags:   </h5>
@@ -27,4 +26,4 @@ const PhotoCard = props => {
   </div>)
 };
 
-export default PhotoCard;
+export default ShowCard;
