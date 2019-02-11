@@ -19,3 +19,8 @@ export function logoutUser(){
 export function addPhoto(photo){
   return {type: 'ADD_PHOTO', photo: photo }
 }
+
+export function getLocation(location){
+  debugger
+      return { type: 'GET_LOCATION', location: {lat: location.coords.latitude, lng: location.coords.longitude } }
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Form, Input, TextArea, Button, Select, Container } from 'semantic-ui-react'
+import { Form, Input, TextArea, Button, Container } from 'semantic-ui-react'
 import { addUser } from '../actions/actions'
 
 class Signup extends Component {

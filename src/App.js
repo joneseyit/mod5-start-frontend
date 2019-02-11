@@ -10,7 +10,7 @@ import PhotoContainer from './components/PhotoContainer'
 import Signup from './components/Signup'
 import CreatePhoto from './components/CreatePhoto'
 import 'semantic-ui/dist/semantic.min.css';
-
+import MapContainer from './components/MapContainer'
 
 
 export default class App extends Component {
@@ -25,6 +25,7 @@ export default class App extends Component {
             <Route exact path='/photos' component={PhotoContainer} />
             <Route exact path='/signup' component={Signup} />
             <Route exact path='/create_photo' component={CreatePhoto} />
+            <Route exact path='/map' component={MapContainer} />
         </Switch>
       </div>
     );
