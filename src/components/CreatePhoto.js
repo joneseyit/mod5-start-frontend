@@ -55,25 +55,25 @@ class CreatePhoto extends Component {
     <Container text>
     <Form onSubmit={(e) => this.onSubmitHandler(e)}>
       <Form.Field>
-        <label>Title</label>
+        <label>Name your Photo</label>
         <input
-          placeholder="Title"
+          placeholder="Name"
           name='title'
           onChange={this.getCoords}
         />
       </Form.Field>
 
       <Form.Field>
-        <label>Notes on Location</label>
+        <label>Notes on Location - make it easy for people to find :)</label>
         <input
-          placeholder="Gives us some notes on the location"
+          placeholder="Location Notes"
           name='location'
           onChange={this.onChangeHandler}
         />
       </Form.Field>
 
       <Form.Field>
-        <label>Caption what you got</label>
+        <label>Give a caption or tell the community why you like this art</label>
         <input
           placeholder="Caption"
           name='caption'

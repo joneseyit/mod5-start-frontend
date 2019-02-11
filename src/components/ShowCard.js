@@ -1,14 +1,13 @@
 import React from "react";
-import { Card, Icon, Image } from "semantic-ui-react";
-import { Link } from 'react-router-dom'
+import { Card, Image } from "semantic-ui-react";
 
 
 
 
-const PhotoCard = props => {
+const ShowCard = props => {
   let id = props.photo.id
   return (<div>
-    <Card as={Link} to={{pathname: `show/${id}`, photo: props.photo}}>
+    <Card>
       <Image src={props.photo.img} alt={props.photo.title} />
       <Card.Content>
         <Card.Header>{props.photo.title}</Card.Header>
@@ -27,4 +26,4 @@ const PhotoCard = props => {
   </div>)
 };
 
-export default PhotoCard;
+export default ShowCard;

@@ -64,7 +64,6 @@ class Map extends Component {
       <div style={{ width: '750px', height: '750px' }}>
         {(this.state.lat > 0)  ?
         (<PhotoMap
-          state={console.log(this.state, 'in photomap')}
           center={{
             lat: lat,
             lng: lng
