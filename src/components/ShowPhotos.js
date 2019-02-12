@@ -15,7 +15,6 @@ class ShowPhotos extends Component {
 
   componentDidMount() {
     this.fetchPhoto();
-    debugger
   }
 
   render() {

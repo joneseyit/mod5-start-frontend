@@ -5,7 +5,6 @@ import { Card, Image } from "semantic-ui-react";
 
 
 const ShowCard = props => {
-  let id = props.photo.id
   return (<div>
     <Card>
       <Image src={props.photo.img} alt={props.photo.title} />

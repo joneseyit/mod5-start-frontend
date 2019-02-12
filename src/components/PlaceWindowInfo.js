@@ -15,9 +15,9 @@ export class PlaceInfoWindow extends Component {
     return (
       <InfoWindow  style={{'height': '90vh' }}>
         <React.Fragment>
-          <h1>{this.props.title}</h1>
+          <h5>{this.props.title}</h5>
           <p>{this.props.caption}</p>
-          <img as={ Link } to={`/show/${id}`} src={this.props.img} />
+          <img as={ Link } to={`/show/${id}`} src={this.props.img} style={{height: '80px'}} />
         </React.Fragment>
       </InfoWindow>
     )

@@ -16,17 +16,18 @@ class NavBar extends Component {
   render() {
 
     return (
-      <Menu stackable inverted size='medium'>
+      <Menu stackable inverted size='medium' style={{ fontFamily: 'Rock Salt, cursive' }}>
         <Menu.Item size='medium'>
           <Link to='/' >
             <img src="https://fontmeme.com/permalink/190131/ab833960b7dac9f34e01a0920bcba65f.png" size='large'/>
+            <h3 style={{ fontFamily: 'Rock Salt, cursive' }}>Find and Discover Street Art in Your Community</h3>
           </Link>
         </Menu.Item>
 
         <Menu.Item as={ Link } to='/photos'
           name='/photos'
         >
-          Find St.Art
+          Find St.Art<br/>by Image
         </Menu.Item>
 
         <Menu.Item as={ Link } to='/map'

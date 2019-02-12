@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Icon, Image, Grid } from "semantic-ui-react";
+import { Card, Icon, Image, Grid, Container } from "semantic-ui-react";
 import { Link } from 'react-router-dom'
 
 
@@ -17,7 +17,7 @@ const PhotoCard = props => {
         <Card.Description>{props.photo.caption}</Card.Description>
       </Card.Content>
       <Card.Content>
-        <Card.Description>{props.photo.location}</Card.Description>
+        <Card.Description>{props.photo.location ? 'Location Notes: ' : null }{props.photo.location}</Card.Description>
       </Card.Content>
 
     </Card>

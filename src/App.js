@@ -18,7 +18,7 @@ import ShowPhotos from './components/ShowPhotos'
 export default class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App" style={{ fontFamily: 'Rock Salt, cursive' }}>
           <NavBar />
           <Switch>
             <Route exact path='/' component={Home} />
