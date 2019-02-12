@@ -10,7 +10,7 @@ const PhotoCard = props => {
   return (<div>
     <Grid.Column style={{padding: '10px'}}>
     <Card as={Link} to={{pathname: `show/${id}`, photo: props.photo}}>
-      <Image src={props.photo.img} alt={props.photo.title} />
+      <Image src={props.photo.img} alt={props.photo.title} style={{height: '350px'}}/>
       <Card.Content>
         <Card.Header>{props.photo.title}</Card.Header>
         <Card.Meta>Photo added {props.photo.created_at.split('-')[0]}</Card.Meta>
