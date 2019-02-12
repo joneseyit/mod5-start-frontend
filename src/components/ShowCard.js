@@ -16,11 +16,6 @@ const ShowCard = props => {
       <Card.Content>
         <Card.Description>{navigator.geolocation.getCurrentPosition((data) => data.coords.latitude)}</Card.Description>
       </Card.Content>
-      <Card.Content>
-        <h5>Tags:   </h5>
-        {props.photo.tags.map(tag =><p>{tag.name}</p>)}
-      </Card.Content>
-
     </Card>
   </div>)
 };

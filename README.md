@@ -28,3 +28,9 @@
 
 
 ### Remove tag feature
+
+
+### refactor
+  - Use own props in the map state to props to find the particular photo
+  - return it as a prop
+  

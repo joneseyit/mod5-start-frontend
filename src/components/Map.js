@@ -5,15 +5,11 @@ import { connect } from 'react-redux'
 import { fetchedPhotos } from '../actions/actions'
 import { getLocation } from '../actions/actions'
 //Flows to PlaceMarker
-
-
 //Get the map up
 //check each photo for the lat/lng - if it fits on the map show it
 //get info window to show up
 //for each marker add a showWindow state of true or false - on the marker render it
 //if it's true using the &&
-
-
 
 const PhotoMap = withGoogleMap(props => {
   return <GoogleMap defaultCenter={props.center} defaultZoom={props.zoom}>
@@ -21,10 +17,7 @@ const PhotoMap = withGoogleMap(props => {
   </GoogleMap>;
 });
 
-
-
 class Map extends Component {
-
   state = {
     //lat/long passed into PhotoMap center
     lat: 0,
@@ -52,7 +45,7 @@ class Map extends Component {
 
 
   render() {
-    debugger
+
     //comes from mapstate to props i get the data on the photos
     // const { caption, title, img } = this.props
     const {lat, lng} = this.props.location;
