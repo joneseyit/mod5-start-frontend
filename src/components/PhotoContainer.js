@@ -19,10 +19,8 @@ class PhotoContainer extends Component {
     this.fetchPhotos()
   }
 
-
-
-
   render (){
+    debugger
     return (
 
       <div>
@@ -30,7 +28,7 @@ class PhotoContainer extends Component {
           <Grid relaxed padded columns={4}>
             <Card.Group>
             { !this.props.photos.length ? <p>Loading un momento...</p> :
-              (this.props.photos.map(photo => <PhotoCard photo={photo} /> ))
+              (this.props.photos.reverse().map(photo => <PhotoCard photo={photo} /> ))
             }
             </Card.Group>
           </Grid>

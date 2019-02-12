@@ -1,4 +1,5 @@
 
+
 export function locationReducer(state = [], action){
   switch (action.type) {
     case 'GET_LOCATION':

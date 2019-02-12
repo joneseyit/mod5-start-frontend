@@ -42,8 +42,8 @@ class CreatePhoto extends Component {
     fetch('http://localhost:3000/api/v1/photos/', options)
     .then(res => res.json())
     .then(photo => this.props.dispatch(addPhoto(photo)))
+    .then(this.props.history.push('/photos'))
 
-    this.props.history.push('/photos')
   }
 
   fileHandler = (e) => {

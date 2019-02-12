@@ -1,9 +1,6 @@
 import React from "react";
 import { Card, Image } from "semantic-ui-react";
 
-
-
-
 const ShowCard = props => {
   return (<div>
     <Card>
@@ -20,4 +17,4 @@ const ShowCard = props => {
   </div>)
 };
 
-export default ShowCard;
+export default ShowCard

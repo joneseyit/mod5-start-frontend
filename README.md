@@ -33,4 +33,7 @@
 ### refactor
   - Use own props in the map state to props to find the particular photo
   - return it as a prop
-  
+
+### find marker by id
+  - maps/id if they click on one
+  - Render marker based on what they clicked on 

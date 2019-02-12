@@ -44,9 +44,9 @@ class Profile extends Component {
             </Card.Group>
             {console.log(this.props.user.photos)}
             <h3>St.Art I posted...</h3>
-
+            <Card.Group>
               {this.props.user.photos !== undefined ? (this.props.user.photos.map(photo => <PhotoCard photo={photo} />)) : <p>You haven't posted any photos yet</p>}
-
+            </Card.Group>
           </div>
         )}
       </div>
