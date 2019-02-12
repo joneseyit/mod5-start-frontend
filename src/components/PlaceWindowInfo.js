@@ -11,15 +11,19 @@ export class PlaceInfoWindow extends Component {
 
   render() {
     const { caption, title, img, id } = this.props;
-
+    debugger
     return (
-      <InfoWindow  style={{'height': '90vh' }} as={Link} to={`/show/${id}`} >
+      <Link to={`show/${id}`}>
+      <InfoWindow  style={{'height': '90vh' }} >
         <React.Fragment>
+
           <h5>{this.props.title}</h5>
           <p>{this.props.caption}</p>
-          <img as={ Link } to={`/show/${id}`} src={this.props.img} style={{height: '80px'}} />
+          <img src={this.props.img} style={{height: '80px'}} />
+
         </React.Fragment>
       </InfoWindow>
+      </Link>
     )
   }
 }

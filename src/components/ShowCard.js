@@ -11,7 +11,7 @@ const ShowCard = props => {
         <Card.Description>{props.photo.caption}</Card.Description>
       </Card.Content>
       <Card.Content>
-        <Card.Description>{navigator.geolocation.getCurrentPosition((data) => data.coords.latitude)}</Card.Description>
+        <Card.Description>Location notes: {props.photo.location}</Card.Description>
       </Card.Content>
     </Card>
   </div>)
