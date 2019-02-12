@@ -39,7 +39,7 @@ class CreatePhoto extends Component {
       body: formData
     }
 
-    fetch('http://localhost:3000/api/v1/photos/', options)
+    fetch('https://sleepy-cliffs-94580.herokuapp.com/api/v1/photos/', options)
     .then(res => res.json())
     .then(photo => this.props.dispatch(addPhoto(photo)))
     .then(this.props.history.push('/photos'))

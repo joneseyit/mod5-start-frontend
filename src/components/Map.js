@@ -26,7 +26,7 @@ class Map extends Component {
   }
 
   fetchPhotos(){
-    fetch('http://localhost:3000/api/v1/photos')
+    fetch('https://sleepy-cliffs-94580.herokuapp.com/api/v1/photos')
     .then(res => res.json())
     .then(photos =>  this.props.dispatch(fetchedPhotos(photos))
     )

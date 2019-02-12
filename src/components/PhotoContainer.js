@@ -8,7 +8,7 @@ import PhotoCard from './PhotoCard'
 class PhotoContainer extends Component {
 
   fetchPhotos(){
-    fetch('http://localhost:3000/api/v1/photos')
+    fetch('https://sleepy-cliffs-94580.herokuapp.com/api/v1/photos')
     .then(res => res.json())
     .then(photos =>  this.props.dispatch(fetchedPhotos(photos))
 
@@ -20,7 +20,6 @@ class PhotoContainer extends Component {
   }
 
   render (){
-    debugger
     return (
 
       <div>
@@ -28,7 +27,7 @@ class PhotoContainer extends Component {
           <Grid relaxed padded columns={4}>
             <Card.Group>
             { !this.props.photos.length ? <p>Loading un momento...</p> :
-              (this.props.photos.reverse().map(photo => <PhotoCard photo={photo} /> ))
+              (this.props.photos.reverse()  .map(photo => <PhotoCard photo={photo} /> ))
             }
             </Card.Group>
           </Grid>

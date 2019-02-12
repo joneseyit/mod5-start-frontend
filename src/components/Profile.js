@@ -13,7 +13,7 @@ class Profile extends Component {
 
   fetchUser = () => {
     let id = parseInt(localStorage.id);
-    return fetch(`http://localhost:3000/api/v1/users/${id}`)
+    return fetch(`https://sleepy-cliffs-94580.herokuapp.com/api/v1/users/${id}`)
       .then(res => res.json())
       .then(user => this.props.dispatch(addUser(user)));
   };

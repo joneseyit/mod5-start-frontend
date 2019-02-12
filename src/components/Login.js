@@ -18,7 +18,7 @@ class Login extends Component {
   };
 
   fetchLogin = (username, password) => {
-    const loginApi = "http://localhost:3000/api/v1/login";
+    const loginApi = "https://sleepy-cliffs-94580.herokuapp.com/api/v1/login";
     // let username = "junior"
     // let password = 'batman'
     let options = {

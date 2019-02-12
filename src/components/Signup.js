@@ -30,7 +30,7 @@ class Signup extends Component {
       })
 
     }
-    fetch('http://localhost:3000/api/v1/users/', options)
+    fetch('https://sleepy-cliffs-94580.herokuapp.com/api/v1/users/', options)
     .then(res => res.json())
     .then(user => {
       if(user.error){

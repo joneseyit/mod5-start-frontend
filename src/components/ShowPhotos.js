@@ -8,7 +8,7 @@ import ShowCard from './ShowCard'
 class ShowPhotos extends Component {
   fetchPhoto = () => {
     const id = this.props.match.params.id;
-    fetch(`http://localhost:3000/api/v1/photos/${id}`)
+    fetch(`https://sleepy-cliffs-94580.herokuapp.com/api/v1/photos/${id}`)
       .then(res => res.json())
       .then(photo => this.props.dispatch(showPhoto(photo)));
   };
