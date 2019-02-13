@@ -36,4 +36,15 @@
 
 ### find marker by id
   - maps/id if they click on one
-  - Render marker based on what they clicked on 
+  - Render marker based on what they clicked on
+  - setup a marker in store
+  - if they click on it from the show page add marker to store
+  - check assign variable in map to store or to all
+  - center map based on marker
+  - find a way to clear state after leaving the page
+  -
+
+  "fixed bug on link in infowindow didn't go to the right show page"
+
+### search by zip code
+### like/comment on photos

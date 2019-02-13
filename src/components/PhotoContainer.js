@@ -7,7 +7,7 @@ import PhotoCard from './PhotoCard'
 
 class PhotoContainer extends Component {
 
-  fetchPhotos(){
+  fetchPhotos(){  
     fetch('https://sleepy-cliffs-94580.herokuapp.com/api/v1/photos')
     .then(res => res.json())
     .then(photos =>  this.props.dispatch(fetchedPhotos(photos))

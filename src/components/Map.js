@@ -4,6 +4,7 @@ import { PlaceMarker } from './PlaceMarker'
 import { connect } from 'react-redux'
 import { fetchedPhotos } from '../actions/actions'
 import { getLocation } from '../actions/actions'
+import { withRouter } from 'react-router-dom'
 //Flows to PlaceMarker
 //Get the map up
 //check each photo for the lat/lng - if it fits on the map show it
@@ -17,24 +18,18 @@ const PhotoMap = withGoogleMap(props => {
   </GoogleMap>;
 });
 
+//if trigger then photos
+
 class Map extends Component {
-  state = {
-    //lat/long passed into PhotoMap center
-    lat: 0,
-    lng: 0,
-    showInfoWindow: false
-  }
 
   fetchPhotos(){
-    fetch('https://sleepy-cliffs-94580.herokuapp.com/api/v1/photos')
+    fetch(`https://sleepy-cliffs-94580.herokuapp.com/api/v1/photos/`)
     .then(res => res.json())
     .then(photos =>  this.props.dispatch(fetchedPhotos(photos))
     )
   }
 
   setLocation = () => {
-    // lat: navigator.geolocation.getCurrentPosition( data => this.setState({ lat: data.coords.latitude }))
-    // lng: navigator.geolocation.getCurrentPosition( data => this.setState({ lng: data.coords.longitude }) )
     navigator.geolocation.getCurrentPosition( data => this.props.dispatch( getLocation(data) ))
   }
 
@@ -44,15 +39,21 @@ class Map extends Component {
   }
 
 
+
+
   render() {
+    //assign state to var
+    //test to see if we have an id in params.  If so just show that one
 
     //comes from mapstate to props i get the data on the photos
     // const { caption, title, img } = this.props
+    //use an or statement to see if we have just one marker or many
     const {lat, lng} = this.props.location;
     const places =
         <div>
            {this.props.photos.map(photo => <PlaceMarker lat={parseFloat(photo.latitude)} lng={parseFloat(photo.longitude)} title={photo.title} caption={photo.caption} img={photo.img} id={photo.id}/> )}
         </div>
+
   return (
       <div style={{ width: '750px', height: '750px' }}>
         {(lat > 0)  ?
@@ -77,8 +78,16 @@ class Map extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { photos: state.photos, location: state.location }
+const mapStateToProps = (state, ownProps) => {
+  debugger
+  let photos = state.photos;
+  let location = state.location;
+  if ((state.photos.length > 0) && (ownProps.match.params.id !== undefined )  ) {
+    photos = state.photos.filter(p => p.id === parseInt(ownProps.match.params.id))
+    location = { lat: parseFloat(photos[0].latitude), lng: parseFloat(photos[0].longitude) }
+  }
+
+  return { photos: photos, location: location, markedPhoto: state.markedPhoto }
 }
 
-export default connect(mapStateToProps)(Map)
+export default withRouter(connect(mapStateToProps)(Map))

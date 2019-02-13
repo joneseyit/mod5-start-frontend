@@ -29,6 +29,7 @@ export default class App extends Component {
             <Route exact path='/create_photo' component={CreatePhoto} />
             <Route exact path='/map' component={Map} />
             <Route exact path='/show/:id' component={ShowPhotos} />
+            <Route exact path='/map/:id' component={Map} />
 
         </Switch>
       </div>

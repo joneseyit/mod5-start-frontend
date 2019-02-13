@@ -13,7 +13,7 @@ export class PlaceInfoWindow extends Component {
     const { caption, title, img, id } = this.props;
     debugger
     return (
-      <Link to={`show/${id}`}>
+      <Link to={`/show/${id}`}>
       <InfoWindow  style={{'height': '90vh' }} >
         <React.Fragment>
 
