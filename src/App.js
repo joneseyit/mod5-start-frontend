@@ -12,6 +12,7 @@ import CreatePhoto from './components/CreatePhoto'
 import Map from './components/Map'
 import 'semantic-ui/dist/semantic.min.css';
 import ShowPhotos from './components/ShowPhotos'
+import GoogleDirections from './components/GoogleDirections'
 
 
 
@@ -30,6 +31,7 @@ export default class App extends Component {
             <Route exact path='/map' component={Map} />
             <Route exact path='/show/:id' component={ShowPhotos} />
             <Route exact path='/map/:id' component={Map} />
+            <Route exact path='/directions' component={GoogleDirections} />
 
         </Switch>
       </div>

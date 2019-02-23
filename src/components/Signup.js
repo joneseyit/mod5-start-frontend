@@ -37,7 +37,6 @@ class Signup extends Component {
         this.setState({ errors: user.error})
         this.props.history.push('/signup')
       } else {
-        debugger
         localStorage.setItem("token", user.token);
         localStorage.setItem("username", user.username);
         localStorage.setItem("id", user.id);

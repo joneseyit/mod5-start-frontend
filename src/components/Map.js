@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { fetchedPhotos } from '../actions/actions'
 import { getLocation } from '../actions/actions'
 import { withRouter } from 'react-router-dom'
+import  GoogleDirections from './GoogleDirections'
 //Flows to PlaceMarker
 //Get the map up
 //check each photo for the lat/lng - if it fits on the map show it
@@ -18,7 +19,6 @@ const PhotoMap = withGoogleMap(props => {
   </GoogleMap>;
 });
 
-//if trigger then photos
 
 class Map extends Component {
 
@@ -70,6 +70,7 @@ class Map extends Component {
             <div style={{ height: '100%' }} />
           }
           places={places}
+          direction={<GoogleDirections />}
         />)
         : <p>Loading...</p>
         }
@@ -78,16 +79,15 @@ class Map extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  debugger
-  let photos = state.photos;
-  let location = state.location;
-  if ((state.photos.length > 0) && (ownProps.match.params.id !== undefined )  ) {
-    photos = state.photos.filter(p => p.id === parseInt(ownProps.match.params.id))
-    location = { lat: parseFloat(photos[0].latitude), lng: parseFloat(photos[0].longitude) }
-  }
+  const mapStateToProps = (state, ownProps) => {
+    let photos = state.photos;
+    let location = state.location;
+    if ((state.photos.length > 0) && (ownProps.match.params.id !== undefined )  ) {
+      photos = state.photos.filter(p => p.id === parseInt(ownProps.match.params.id))
+      location = { lat: parseFloat(photos[0].latitude), lng: parseFloat(photos[0].longitude) }
 
-  return { photos: photos, location: location, markedPhoto: state.markedPhoto }
+    }
+  return { photos: photos, location: location }
 }
 
 export default withRouter(connect(mapStateToProps)(Map))

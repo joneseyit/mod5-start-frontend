@@ -10,6 +10,8 @@ class CreatePhoto extends Component {
     longitude: null
   }
 
+
+
   getCoords = () => {
     navigator.geolocation.getCurrentPosition(data => this.setState({ latitude: data.coords.latitude, longitude: data.coords.longitude }) )
   }

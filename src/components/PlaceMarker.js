@@ -16,8 +16,8 @@ export class PlaceMarker extends Component {
 
 
   render() {
+    debugger
     const { lat, lng, title, caption, img, id } = this.props;
-
     return (
       <div>
         <Marker
