@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Profile from './components/Profile'
 // import ShowPhotos from './components/ShowPhotos'
@@ -16,8 +16,10 @@ import ShowPhotos from './components/ShowPhotos'
 
 
 
-export default class App extends Component {
+class App extends Component {
   render() {
+    console.log(this.props.photo)
+
     return (
       <div className="App" style={{ fontFamily: 'Rock Salt, cursive' }}>
           <NavBar />
@@ -31,8 +33,8 @@ export default class App extends Component {
             <Route exact path='/map' component={Map} />
             <Route exact path='/show/:id' component={ShowPhotos} />
             <Route exact path='/map/:id' component={Map} />
-            <Route path='/directions' component={() => { window.location = 'https://google.com/maps/search/?api=1&query=33.787119,84.382543'; return null;} }/>
-            
+            <Route path='/directions' component={() => { window.location = `https://google.com/maps/search/?api=1&query=${this.props.photo.latitude},${this.props.photo.longitude}`; return null;} }/>
+
         </Switch>
       </div>
     );
@@ -43,4 +45,4 @@ const mapStateToProps = (state) => {
   return { photo: state.photo }
 }
 
-// export default connect()(App)
+export default withRouter(connect(mapStateToProps)(App))
