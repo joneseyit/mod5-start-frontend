@@ -3,11 +3,13 @@ import { Card, Image } from "semantic-ui-react";
 import { Redirect, withRouter, Link } from 'react-router-dom'
 import { markedPhoto } from '../actions/actions'
 import { connect } from 'react-redux'
+import { getLocation } from '../actions/actions'
 
 
 ////www.google.com/maps/search/?api=1&query=${props.photo.latitude},${props.photo.longitude}
 const ShowCard = props => {
 
+  navigator.geolocation.getCurrentPosition( data => props.dispatch( getLocation(data) ))
 
   return (<div>
     <Card>

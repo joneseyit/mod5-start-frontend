@@ -18,9 +18,6 @@ const start = {
 };
 
 class Home extends Component {
-  handleOnClick = e => {
-    this.props.dispatch(test("HEY HEY HEY"));
-  };
 
   componentDidMount(){
     console.log(navigator.geolocation.getCurrentPosition((data) => {
