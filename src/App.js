@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
 import Profile from './components/Profile'
 // import ShowPhotos from './components/ShowPhotos'
 import Login from './components/Login'
@@ -30,9 +31,16 @@ export default class App extends Component {
             <Route exact path='/map' component={Map} />
             <Route exact path='/show/:id' component={ShowPhotos} />
             <Route exact path='/map/:id' component={Map} />
-
+            <Route path='/directions' component={() => { window.location = 'https://google.com/maps/search/?api=1&query=33.787119,84.382543'; return null;} }/>
+            
         </Switch>
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return { photo: state.photo }
+}
+
+// export default connect()(App)

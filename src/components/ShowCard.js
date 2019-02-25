@@ -1,11 +1,11 @@
 import React from "react";
 import { Card, Image } from "semantic-ui-react";
-import { Link, withRouter } from 'react-router-dom'
+import { Redirect, withRouter, Link } from 'react-router-dom'
 import { markedPhoto } from '../actions/actions'
 import { connect } from 'react-redux'
 
 
-
+////www.google.com/maps/search/?api=1&query=${props.photo.latitude},${props.photo.longitude}
 const ShowCard = props => {
 
 
@@ -22,6 +22,9 @@ const ShowCard = props => {
       </Card.Content>
       <Link to={`/map/${props.photo.id}`}>
         Find This Art on the Map
+      </Link>
+      <Link to={{ pathname: '/directions', state: { photo: props.photo } }}>
+        Get Directions
       </Link>
     </Card>
   </div>)
