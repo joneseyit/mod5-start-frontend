@@ -33,7 +33,7 @@ class App extends Component {
             <Route exact path='/map' component={Map} />
             <Route exact path='/show/:id' component={ShowPhotos} />
             <Route exact path='/map/:id' component={Map} />
-            <Route path='/directions' component={() => { window.location = `https://google.com/maps/dir/?api=1&origin=${this.props.location.lat},${this.props.location.lng}&destination=${this.props.photo.latitude},${this.props.photo.longitude}`; return null;} }/>
+            <Route path='/directions' component={() => { window.open(`https://google.com/maps/dir/?api=1&origin=${this.props.location.lat},${this.props.location.lng}&destination=${this.props.photo.latitude},${this.props.photo.longitude}`); return <Map/>;} }/>
 
         </Switch>
       </div>
