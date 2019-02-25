@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Profile from './components/Profile'
 import Login from './components/Login'
@@ -38,4 +38,4 @@ class App extends Component {
 }
 
 
-export default connect()(App)
+export default withRouter(connect()(App))
