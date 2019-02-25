@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Profile from './components/Profile'
-// import ShowPhotos from './components/ShowPhotos'
 import Login from './components/Login'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
