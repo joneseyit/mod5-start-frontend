@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch, withRouter } from 'react-router-dom'
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Profile from './components/Profile'
 // import ShowPhotos from './components/ShowPhotos'
@@ -33,7 +33,7 @@ class App extends Component {
             <Route exact path='/map' component={Map} />
             <Route exact path='/show/:id' component={ShowPhotos} />
             <Route exact path='/map/:id' component={Map} />
-            <Route path='/directions' component={() => { window.open(`https://google.com/maps/dir/?api=1&origin=${this.props.location.lat},${this.props.location.lng}&destination=${this.props.photo.latitude},${this.props.photo.longitude}`); return <Map/>;} }/>
+            <Route path='/directions' component={() => { window.open(`https://google.com/maps/dir/?api=1&origin=${this.props.location.lat},${this.props.location.lng}&destination=${this.props.photo.latitude},${this.props.photo.longitude}`); return <Redirect to={`show/${this.props.photo.id}`} />;} }/>
 
         </Switch>
       </div>
