@@ -5,6 +5,10 @@ import { markedPhoto } from '../actions/actions'
 import { connect } from 'react-redux'
 import { getLocation } from '../actions/actions'
 
+// <Link to={{ pathname: '/directions', state: { photo: props.photo } }}>
+//   Get Directions
+// </Link>
+
 
 ////www.google.com/maps/search/?api=1&query=${props.photo.latitude},${props.photo.longitude}
 const ShowCard = props => {
@@ -25,11 +29,16 @@ const ShowCard = props => {
       <Link to={`/map/${props.photo.id}`}>
         Find This Art on the Map
       </Link>
-      <Link to={{ pathname: '/directions', state: { photo: props.photo } }}>
+      <a href={`https://google.com/maps/dir/?api=1&origin=${props.location.lat},${props.location.lng}&destination=${props.photo.latitude},${props.photo.longitude}`} target="_blank" >
         Get Directions
-      </Link>
+      </a>
+
     </Card>
   </div>)
 };
 
-export default connect()(ShowCard)
+const mapStateToProps = (state) => {
+  return { location: state.location}
+}
+
+export default connect(mapStateToProps)(ShowCard)

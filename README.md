@@ -42,9 +42,18 @@
   - check assign variable in map to store or to all
   - center map based on marker
   - find a way to clear state after leaving the page
-  -
 
-  "fixed bug on link in infowindow didn't go to the right show page"
+
+  "fixed bug on link in infowindow - it didn't go to the right show page"
+
+### Got google directions to work.  Turns out...
+    - Instead of using googlemaps api account use api=1 and redirect to google maps page.  Using the url parameters pass
+    in lat/lng for destination and origin.  
+    - When you use connect to map props you need to wrap it in
+      withRouter for your routes to work
+    - Use window.open(....) to have the url open in a new window
+    - a tag does work - use target= *"_blank"* to get it to pop new window
+    
 
 ### search by zip code
 ### like/comment on photos

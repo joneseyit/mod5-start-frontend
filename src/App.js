@@ -14,8 +14,6 @@ import Map from './components/Map'
 import 'semantic-ui/dist/semantic.min.css';
 import ShowPhotos from './components/ShowPhotos'
 
-//https://google.com/maps/search/?api=1&query=${this.props.photo.latitude},${this.props.photo.longitude}
-
 class App extends Component {
   render() {
     console.log(this.props.photo)
@@ -33,7 +31,6 @@ class App extends Component {
             <Route exact path='/map' component={Map} />
             <Route exact path='/show/:id' component={ShowPhotos} />
             <Route exact path='/map/:id' component={Map} />
-            <Route path='/directions' component={() => { window.open(`https://google.com/maps/dir/?api=1&origin=${this.props.location.lat},${this.props.location.lng}&destination=${this.props.photo.latitude},${this.props.photo.longitude}`); return <Redirect to={`show/${this.props.photo.id}`} />;} }/>
 
         </Switch>
       </div>
@@ -41,11 +38,5 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    photo: state.photo,
-    location: state.location
-  }
-}
 
-export default withRouter(connect(mapStateToProps)(App))
+export default connect()(App)
