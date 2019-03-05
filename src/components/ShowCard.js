@@ -12,24 +12,24 @@ import { getLocation } from '../actions/actions'
 
 ////www.google.com/maps/search/?api=1&query=${props.photo.latitude},${props.photo.longitude}
 const ShowCard = props => {
-
+  const { title, img, caption, location, id, latitude, longitude, created_at } = props.photo
   navigator.geolocation.getCurrentPosition( data => props.dispatch( getLocation(data) ))
 
   return (<div>
     <Card>
-      <Image src={props.photo.img} alt={props.photo.title} />
+      <Image src={img} alt={title} />
       <Card.Content>
-        <Card.Header>{props.photo.title}</Card.Header>
-        <Card.Meta>Photo added {props.photo.created_at.split('-')[0]}</Card.Meta>
-        <Card.Description>{props.photo.caption}</Card.Description>
+        <Card.Header>{title}</Card.Header>
+        <Card.Meta>Photo added {created_at.split('-')[0]}</Card.Meta>
+        <Card.Description>{caption}</Card.Description>
       </Card.Content>
       <Card.Content>
-        <Card.Description>Location notes: {props.photo.location}</Card.Description>
+        <Card.Description>Location notes: {location}</Card.Description>
       </Card.Content>
-      <Link to={`/map/${props.photo.id}`}>
+      <Link to={`/map/${id}`}>
         Find This Art on the Map
       </Link>
-      <a href={`https://google.com/maps/dir/?api=1&origin=${props.location.lat},${props.location.lng}&destination=${props.photo.latitude},${props.photo.longitude}`} target="_blank" >
+          <a href={`https://google.com/maps/dir/?api=1&origin=${props.location.lat},${props.location.lng}&destination=${latitude},${longitude}`} target="_blank" >
         Get Directions
       </a>
 

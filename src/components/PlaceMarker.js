@@ -33,6 +33,8 @@ export class PlaceMarker extends Component {
               caption={caption}
               img={img}
               id={id}
+              photoLat={lat}
+              photoLng={lng}
               onClick={this.clickHandler}
             />
           )}

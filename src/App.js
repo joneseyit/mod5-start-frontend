@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import { Route, Switch, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Profile from './components/Profile'
@@ -18,7 +17,7 @@ class App extends Component {
     console.log(this.props.photo)
 
     return (
-      <div className="App" style={{ fontFamily: 'Rock Salt, cursive' }}>
+      <div style={{ fontFamily: 'Rock Salt, cursive' }}>
           <NavBar />
           <Switch>
             <Route exact path='/' component={Home} />

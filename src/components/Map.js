@@ -12,12 +12,6 @@ import { withRouter } from 'react-router-dom'
 //for each marker add a showWindow state of true or false - on the marker render it
 //if it's true using the &&
 
-//https://www.google.com/maps/@33.785968,-84.3804785,15z
-
-// test directions lat lnf 34.026249,-84.345349
-// 33.787119,-84.382543
-// how to allow api access to just maps and directions
-//
 const PhotoMap = withGoogleMap(props => {
   return <GoogleMap defaultCenter={props.center} defaultZoom={props.zoom}>
     {props.places}
@@ -57,7 +51,14 @@ class Map extends Component {
     const {lat, lng} = this.props.location;
     const places =
         <div>
-           {this.props.photos.map(photo => <PlaceMarker lat={parseFloat(photo.latitude)} lng={parseFloat(photo.longitude)} title={photo.title} caption={photo.caption} img={photo.img} id={photo.id}/> )}
+           {this.props.photos.map(photo =>
+             <PlaceMarker
+               lat={parseFloat(photo.latitude)}
+               lng={parseFloat(photo.longitude)}
+               title={photo.title}
+               caption={photo.caption}
+               img={photo.img}
+               id={photo.id}/> )}
         </div>
 
   return (
@@ -68,7 +69,7 @@ class Map extends Component {
             lat: lat,
             lng: lng
           }}
-          zoom={14}
+          zoom={10}
           containerElement={
             <div style={{ height: '100%' }} />
           }
@@ -77,7 +78,8 @@ class Map extends Component {
           }
           places={places}
         />)
-        : <p>Loading...</p>
+        :
+        <p>Loading...</p>
         }
       </div>
     )
